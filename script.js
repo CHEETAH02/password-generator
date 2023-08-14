@@ -5,6 +5,8 @@ window.addEventListener("DOMContentLoaded", () => {
     var capLetterCheckbox = document.getElementById('capLetterCheckbox')
     var numberCheckbox = document.getElementById('numberCheckbox')
     var specialCheckbox = document.getElementById('specialCheckbox')
+    var quoteCheckbox = document.getElementById('quoteCheckbox')
+    var bracketCheckbox = document.getElementById('bracketCheckbox')
     var submitButton = document.getElementById('submitButton')
     var textArea = document.getElementById('textArea')
     var copyButton = document.getElementById('copyButton')
@@ -25,9 +27,18 @@ window.addEventListener("DOMContentLoaded", () => {
             charHeap = charHeap.concat(arr)
         }
         if (specialCheckbox.checked) {
-            var arr = ['!', '@', '#', '$', '%', '^', '&', '*', '.', ',', '|', '=', '-', '_', '+']
+            var arr = ['!', '@', '#', '$', '%', '^', '&', '*', '-', '_', '=', '+', '|', ':', ';', ',', '.', '/', '?', '~']
             charHeap = charHeap.concat(arr)
         }
+        if (quoteCheckbox.checked) {
+            var arr = ['"', '\'', '`']
+            charHeap = charHeap.concat(arr)
+        }
+        if (bracketCheckbox.checked) {
+            var arr = ['[', ']', '{', '}', '(', ')', '<', '>']
+            charHeap = charHeap.concat(arr)
+        }
+
         for (var i = 0; i < passLength.value; i++) {
             var j = Math.floor(Math.random() * (charHeap.length));
             passString.push(charHeap[j])
